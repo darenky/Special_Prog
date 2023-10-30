@@ -39,10 +39,6 @@ save_dir = "files"  # Directory where files will be stored
 
 #Download data from website + data cleaning 
 def download_data(region_index, save_dir):
-    if region_index not in NOAAIndex:
-        print("Invalid region index.")
-        return None
-
     noaa_index = NOAAIndex[region_index]
     url = f"https://www.star.nesdis.noaa.gov/smcd/emb/vci/VH/get_TS_admin.php?provinceID={noaa_index}&country=UKR&yearlyTag=Weekly&type=Mean&TagCropland=land&year1=1982&year2=2023"
     response = requests.get(url)
