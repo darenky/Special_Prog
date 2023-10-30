@@ -31,7 +31,7 @@ NOAAIndex = {
         23:3,
         24:2,
         25:4, 
-        26:12, # for Kiev
+        26:12, # for Kyiv
         27:20 # for Sevastopol
 }
 
