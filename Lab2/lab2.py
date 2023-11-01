@@ -37,7 +37,7 @@ NOAAIndex = {
 
 save_dir = "files"  # Directory where files will be stored
 
-#Download data from website + data cleaning 
+# Download data from website + data cleaning 
 def download_data(region_index, save_dir):
     noaa_index = NOAAIndex[region_index]
     url = f"https://www.star.nesdis.noaa.gov/smcd/emb/vci/VH/get_TS_admin.php?provinceID={noaa_index}&country=UKR&yearlyTag=Weekly&type=Mean&TagCropland=land&year1=1982&year2=2023"
@@ -48,15 +48,14 @@ def download_data(region_index, save_dir):
         formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H-%M")
         filename = os.path.join(save_dir, f"file_{formatted_datetime}.csv")
 
-        with open(filename, 'wb') as file:   # + some data cleaning
-            content = response.text.replace("</pre></tt>", "")
-            content = content.replace("<tt><pre>", "")
-            content = content.replace("<br>", "")
-            content = content.replace(" VHI", "VHI")
-            content = content.replace(" SMN", "SMN")
-            content = content.replace("weeklyfor", "weekly for")
-            content = re.sub(r',\n', '\n', content)  # Remove trailing commas
+        with open(filename, 'wb') as file:
+            content = response.text
+            replacements = [("</pre></tt>", ""), ("<tt><pre>", ""), ("<br>", ""), (" VHI", "VHI"), (" SMN", "SMN"), ("weeklyfor", "weekly for")]
+    
+            for old, new in replacements:
+                content = content.replace(old, new)
 
+            content = content.replace(',\n', '\n')  # Remove trailing commas
             file.write(content.encode('utf-8'))
 
         print(f"The file {filename} has been downloaded and saved")
