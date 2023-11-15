@@ -1,3 +1,11 @@
 # Analysis of VHI data
-* ### VHI -  Global Vegetation Health
-* http://surl.li/muall - raw data used in lab2 
+### Features:
+* No noise Normalized Difference Vegetation Index (SMN)
+* No noise Brightness Temperature (SMT)
+* Vegetation Health (VHI)
+* Vegetation Condition Index (VCI)
+* Temperature Condition Index (TCI)
+### Sourse:
+* http://surl.li/muall 
+
+
