@@ -5,7 +5,7 @@
 * Vegetation Health (VHI)
 * Vegetation Condition Index (VCI)
 * Temperature Condition Index (TCI)
-### Sourse
+### Source
 * http://surl.li/muall
 ### More about data
 * https://www.star.nesdis.noaa.gov/smcd/emb/vci/VH/index.php
